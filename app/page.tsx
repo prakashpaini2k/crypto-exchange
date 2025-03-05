@@ -38,7 +38,7 @@ export default async function LandingPage() {
   return (
     <div className="flex min-h-screen flex-col bg-black text-white">
       {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-zinc-800 bg-black/80 backdrop-blur-sm">
+      <header className="sticky flex justify-center top-0 z-50 border-b border-zinc-800 bg-black/80 backdrop-blur-sm">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-6">
             <Link href="/" className="flex items-center gap-2 font-bold text-yellow-500">
@@ -49,7 +49,7 @@ export default async function LandingPage() {
                 alt="CryptoEx Logo"
                 className="rounded-full"
               />
-              <span>CryptoEx</span>
+              <span>Binance</span>
             </Link>
             <nav className="hidden md:flex gap-6">
               <Link href="/markets" className="text-sm hover:text-yellow-500">
@@ -120,7 +120,7 @@ export default async function LandingPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="container py-20 md:py-32">
+      <section className="container m-auto py-20 md:py-32">
         <div className="grid gap-10 md:grid-cols-2 md:gap-16 items-center">
           <div className="flex flex-col gap-6">
             <h1 className="text-4xl font-bold tracking-tight md:text-6xl">
@@ -142,20 +142,20 @@ export default async function LandingPage() {
             </div>
           </div>
           <div className="relative">
-            <Image
+            {/* <Image
               src="/placeholder.svg?height=500&width=600"
               width={600}
               height={500}
               alt="Trading Platform"
               className="rounded-lg"
-            />
+            /> */}
           </div>
         </div>
       </section>
 
       {/* Market Overview */}
       <section className="border-y border-zinc-800 bg-zinc-900/50 py-10">
-        <div className="container">
+        <div className="container m-auto">
           <div className="mb-6 flex items-center justify-between">
             <h2 className="text-2xl font-bold">Market Trends</h2>
             <Link href="/markets" className="text-sm text-yellow-500 hover:underline flex items-center">
@@ -193,7 +193,7 @@ export default async function LandingPage() {
 
       {/* Trading Volume Stats */}
       <section className="py-16 bg-black">
-        <div className="container">
+        <div className="container m-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="text-4xl font-bold text-yellow-500">$76B+</div>
@@ -217,7 +217,7 @@ export default async function LandingPage() {
 
       {/* News Section */}
       <section className="py-16 bg-zinc-900/30">
-        <div className="container">
+        <div className="container m-auto">
           <div className="mb-8 flex items-center justify-between">
             <h2 className="text-2xl font-bold">Latest Crypto News</h2>
             <Link href="#" className="text-sm text-yellow-500 hover:underline flex items-center">
@@ -233,7 +233,7 @@ export default async function LandingPage() {
       </section>
 
       {/* Features */}
-      <section className="container py-20">
+      <section className="container m-auto py-20">
         <h2 className="mb-12 text-center text-3xl font-bold md:text-4xl">Why Choose CryptoEx</h2>
         <div className="grid gap-8 md:grid-cols-3">
           <div className="rounded-lg border border-zinc-800 bg-zinc-900 p-6">
@@ -265,8 +265,8 @@ export default async function LandingPage() {
       </section>
 
       {/* App Download */}
-      <section className="py-16 bg-zinc-900/30">
-        <div className="container">
+      {/* <section className="py-16 bg-zinc-900/30">
+        <div className="container m-auto">
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div>
               <h2 className="text-3xl font-bold mb-4">Trade Anytime, Anywhere</h2>
@@ -317,7 +317,7 @@ export default async function LandingPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA */}
       <section className="bg-gradient-to-r from-zinc-900 to-black py-20">
@@ -336,9 +336,9 @@ export default async function LandingPage() {
 
       {/* Footer */}
       <footer className="border-t border-zinc-800 bg-black py-12">
-        <div className="container">
-          <div className="grid gap-8 md:grid-cols-4">
-            <div>
+        <div className="container m-auto">
+          <div className="grid gap-8 md:grid-cols-3">
+            {/* <div>
               <Link href="/" className="flex items-center gap-2 font-bold text-yellow-500">
                 <Image
                   src="/placeholder.svg?height=32&width=32"
@@ -347,10 +347,10 @@ export default async function LandingPage() {
                   alt="CryptoEx Logo"
                   className="rounded-full"
                 />
-                <span>CryptoEx</span>
+                <span>Binance</span>
               </Link>
               <p className="mt-4 text-sm text-zinc-400">The world's leading cryptocurrency exchange platform.</p>
-            </div>
+            </div> */}
             <div>
               <h3 className="mb-4 font-medium">Products</h3>
               <ul className="space-y-2 text-sm text-zinc-400">

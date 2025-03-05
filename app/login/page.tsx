@@ -44,7 +44,7 @@ export default function LoginPage() {
               alt="CryptoEx Logo"
               className="rounded-full"
             />
-            <span>CryptoEx</span>
+            <span>Binance</span>
           </Link>
         </div>
       </header>
@@ -124,7 +124,7 @@ export default function LoginPage() {
                   </div>
                 </form>
 
-                <div className="mt-6">
+                {/* <div className="mt-6">
                   <div className="relative">
                     <div className="absolute inset-0 flex items-center">
                       <div className="w-full border-t border-zinc-700"></div>
@@ -142,7 +142,7 @@ export default function LoginPage() {
                       Apple
                     </Button>
                   </div>
-                </div>
+                </div> */}
               </div>
             </TabsContent>
             <TabsContent value="register">

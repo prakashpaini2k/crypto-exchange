@@ -1,4 +1,4 @@
-import Image from "next/image"
+// import Image from "next/image"
 import Link from "next/link"
 import type { NewsItem } from "@/lib/types"
 import { timeAgo } from "@/lib/utils"
@@ -11,15 +11,15 @@ interface NewsCardProps {
 export function NewsCard({ news }: NewsCardProps) {
   return (
     <Link href={news.url} className="block">
-      <div className="rounded-lg border border-zinc-800 bg-zinc-900 overflow-hidden transition-all hover:border-zinc-700 hover:bg-zinc-800/50">
-        <div className="relative h-40 w-full">
+      <div className="rounded-lg h-full border border-zinc-800 bg-zinc-900 overflow-hidden transition-all hover:border-zinc-700 hover:bg-zinc-800/50">
+        {/* <div className="relative h-40 w-full">
           <Image
             src={news.image || "/placeholder.svg?height=200&width=300"}
             alt={news.title}
             fill
             className="object-cover"
-          />
-        </div>
+          /> */}
+        {/* </div> */}
         <div className="p-4">
           <div className="flex items-center justify-between mb-2">
             <Badge variant="outline" className="text-xs bg-yellow-500/10 text-yellow-500 border-yellow-500/20">

@@ -105,7 +105,7 @@ export function SidebarNavigation({ className }: SidebarNavigationProps) {
         </Button>
         {expanded && (
           <Link href="/" className="flex items-center gap-2 font-bold text-yellow-500">
-            <span>CryptoEx</span>
+            <span>Binance</span>
           </Link>
         )}
       </div>
