@@ -294,7 +294,7 @@ export default function OptionsAssetsPage() {
 
         <footer className="border-t border-zinc-800 py-6">
           <div className="container text-center text-sm text-zinc-400">
-            <p>© {new Date().getFullYear()} CryptoEx. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Binance. All rights reserved.</p>
           </div>
         </footer>
       </div>
