@@ -71,7 +71,7 @@ export function PortfolioTable({ assets }: PortfolioTableProps) {
                 <td className="whitespace-nowrap px-6 py-4 text-right">
                   <div className="flex gap-2 justify-end">
                     <Link href={`/trade/${asset.symbol}_USDT`}>
-                      <Button size="sm" variant="outline" className="border-zinc-700 hover:bg-zinc-800">
+                      <Button size="sm" variant="outline" className="px-4 py-2 border-2 border-gray-800 text-gray-800 bg-white rounded-lg transition duration-300 hover:bg-gray-800 hover:text-white">
                         Trade
                       </Button>
                     </Link>

@@ -1,6 +1,6 @@
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
-import type { CryptoCurrency, PortfolioAsset, NewsItem, Order, MarketPair } from "./types"
+import type { CryptoCurrency, PortfolioAsset, NewsItem, Order, MarketPair, WalletAsset, Transaction } from "./types"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -133,7 +133,6 @@ export function generateNewsData(): NewsItem[] {
       url: "#",
       publishedAt: new Date(Date.now() - 3600000).toISOString(),
       source: "CryptoNews",
-      image: "/placeholder.svg?height=200&width=300",
       category: "Bitcoin",
     },
     {
@@ -143,7 +142,6 @@ export function generateNewsData(): NewsItem[] {
       url: "#",
       publishedAt: new Date(Date.now() - 7200000).toISOString(),
       source: "BlockchainInsider",
-      image: "/placeholder.svg?height=200&width=300",
       category: "Ethereum",
     },
     {
@@ -154,7 +152,6 @@ export function generateNewsData(): NewsItem[] {
       url: "#",
       publishedAt: new Date(Date.now() - 10800000).toISOString(),
       source: "FinanceDaily",
-      image: "/placeholder.svg?height=200&width=300",
       category: "Regulation",
     },
     {
@@ -165,7 +162,6 @@ export function generateNewsData(): NewsItem[] {
       url: "#",
       publishedAt: new Date(Date.now() - 14400000).toISOString(),
       source: "DeFiPulse",
-      image: "/placeholder.svg?height=200&width=300",
       category: "DeFi",
     },
     {
@@ -176,7 +172,6 @@ export function generateNewsData(): NewsItem[] {
       url: "#",
       publishedAt: new Date(Date.now() - 18000000).toISOString(),
       source: "BankingTech",
-      image: "/placeholder.svg?height=200&width=300",
       category: "Banking",
     },
     {
@@ -187,7 +182,6 @@ export function generateNewsData(): NewsItem[] {
       url: "#",
       publishedAt: new Date(Date.now() - 21600000).toISOString(),
       source: "NFTWorld",
-      image: "/placeholder.svg?height=200&width=300",
       category: "NFTs",
     },
   ]
@@ -268,6 +262,7 @@ export function generateOrderHistory(): Order[] {
 // Generate market pairs data
 export function generateMarketPairs(): MarketPair[] {
   return [
+    // Spot Markets
     {
       pair: "BTC/USDT",
       baseAsset: "BTC",
@@ -277,6 +272,7 @@ export function generateMarketPairs(): MarketPair[] {
       volume: 1245678900,
       high: 44102.5,
       low: 42980.1,
+      market: "spot",
     },
     {
       pair: "ETH/USDT",
@@ -287,6 +283,7 @@ export function generateMarketPairs(): MarketPair[] {
       volume: 678945230,
       high: 3298.45,
       low: 3201.78,
+      market: "spot",
     },
     {
       pair: "BNB/USDT",
@@ -297,6 +294,7 @@ export function generateMarketPairs(): MarketPair[] {
       volume: 234567890,
       high: 418.92,
       low: 409.11,
+      market: "spot",
     },
     {
       pair: "SOL/USDT",
@@ -307,6 +305,7 @@ export function generateMarketPairs(): MarketPair[] {
       volume: 123456789,
       high: 105.67,
       low: 98.45,
+      market: "spot",
     },
     {
       pair: "ADA/USDT",
@@ -317,56 +316,228 @@ export function generateMarketPairs(): MarketPair[] {
       volume: 98765432,
       high: 0.54,
       low: 0.51,
+      market: "spot",
+    },
+
+    // Futures Markets
+    {
+      pair: "BTC/USDT",
+      baseAsset: "BTC",
+      quoteAsset: "USDT",
+      lastPrice: 43589.5,
+      priceChangePercent: 2.38,
+      volume: 2345678901,
+      high: 44150.75,
+      low: 42950.25,
+      market: "futures",
+      leverage: "1-125x",
     },
     {
-      pair: "XRP/USDT",
-      baseAsset: "XRP",
+      pair: "ETH/USDT",
+      baseAsset: "ETH",
       quoteAsset: "USDT",
-      lastPrice: 0.58,
-      priceChangePercent: 0.75,
-      volume: 87654321,
-      high: 0.59,
-      low: 0.57,
+      lastPrice: 3260.45,
+      priceChangePercent: 1.62,
+      volume: 987654321,
+      high: 3305.2,
+      low: 3198.75,
+      market: "futures",
+      leverage: "1-100x",
     },
     {
-      pair: "DOT/USDT",
-      baseAsset: "DOT",
+      pair: "SOL/USDT",
+      baseAsset: "SOL",
       quoteAsset: "USDT",
-      lastPrice: 6.78,
-      priceChangePercent: 2.15,
-      volume: 76543210,
-      high: 6.92,
-      low: 6.65,
+      lastPrice: 103.15,
+      priceChangePercent: 4.25,
+      volume: 345678912,
+      high: 106.5,
+      low: 98.2,
+      market: "futures",
+      leverage: "1-50x",
     },
+
+    // Options Markets
     {
-      pair: "DOGE/USDT",
-      baseAsset: "DOGE",
+      pair: "BTC-30JUN23-45000-C",
+      baseAsset: "BTC",
       quoteAsset: "USDT",
-      lastPrice: 0.082,
+      lastPrice: 1250.75,
       priceChangePercent: 3.45,
-      volume: 65432109,
-      high: 0.085,
-      low: 0.079,
+      volume: 45678912,
+      high: 1300.5,
+      low: 1200.25,
+      market: "options",
+      expiryDate: "2023-06-30",
+      strikePrice: 45000,
+      optionType: "call",
     },
     {
-      pair: "AVAX/USDT",
-      baseAsset: "AVAX",
+      pair: "BTC-30JUN23-40000-P",
+      baseAsset: "BTC",
       quoteAsset: "USDT",
-      lastPrice: 35.67,
-      priceChangePercent: 1.89,
-      volume: 54321098,
-      high: 36.45,
-      low: 34.92,
+      lastPrice: 850.25,
+      priceChangePercent: -2.15,
+      volume: 34567891,
+      high: 900.75,
+      low: 825.5,
+      market: "options",
+      expiryDate: "2023-06-30",
+      strikePrice: 40000,
+      optionType: "put",
     },
     {
-      pair: "MATIC/USDT",
-      baseAsset: "MATIC",
+      pair: "ETH-30JUN23-3500-C",
+      baseAsset: "ETH",
       quoteAsset: "USDT",
-      lastPrice: 0.89,
-      priceChangePercent: -0.56,
-      volume: 43210987,
-      high: 0.91,
-      low: 0.88,
+      lastPrice: 125.5,
+      priceChangePercent: 2.75,
+      volume: 23456789,
+      high: 130.25,
+      low: 120.75,
+      market: "options",
+      expiryDate: "2023-06-30",
+      strikePrice: 3500,
+      optionType: "call",
+    },
+  ]
+}
+
+// Generate wallet assets
+export function generateWalletAssets(): WalletAsset[] {
+  return [
+    {
+      id: "bitcoin",
+      name: "Bitcoin",
+      symbol: "BTC",
+      balance: 0.12,
+      availableBalance: 0.1,
+      inOrder: 0.02,
+      value: 5228.06,
+      image: "/placeholder.svg?height=32&width=32",
+    },
+    {
+      id: "ethereum",
+      name: "Ethereum",
+      symbol: "ETH",
+      balance: 1.5,
+      availableBalance: 1.5,
+      inOrder: 0,
+      value: 4884.18,
+      image: "/placeholder.svg?height=32&width=32",
+    },
+    {
+      id: "solana",
+      name: "Solana",
+      symbol: "SOL",
+      balance: 12.5,
+      availableBalance: 10.0,
+      inOrder: 2.5,
+      value: 1284.75,
+      image: "/placeholder.svg?height=32&width=32",
+    },
+    {
+      id: "cardano",
+      name: "Cardano",
+      symbol: "ADA",
+      balance: 2500,
+      availableBalance: 2500,
+      inOrder: 0,
+      value: 1300.0,
+      image: "/placeholder.svg?height=32&width=32",
+    },
+    {
+      id: "binancecoin",
+      name: "Binance Coin",
+      symbol: "BNB",
+      balance: 2.8,
+      availableBalance: 2.3,
+      inOrder: 0.5,
+      value: 1154.58,
+      image: "/placeholder.svg?height=32&width=32",
+    },
+    {
+      id: "ripple",
+      name: "XRP",
+      symbol: "XRP",
+      balance: 1500,
+      availableBalance: 1000,
+      inOrder: 500,
+      value: 870.0,
+      image: "/placeholder.svg?height=32&width=32",
+    },
+    {
+      id: "tether",
+      name: "Tether",
+      symbol: "USDT",
+      balance: 2500,
+      availableBalance: 2500,
+      inOrder: 0,
+      value: 2500.0,
+      image: "/placeholder.svg?height=32&width=32",
+    },
+  ]
+}
+
+// Generate transaction history
+export function generateTransactionHistory(): Transaction[] {
+  return [
+    {
+      id: "tx-1",
+      type: "deposit",
+      asset: "BTC",
+      amount: 0.05,
+      status: "completed",
+      date: new Date(Date.now() - 86400000).toISOString(),
+      fee: 0.0001,
+      txid: "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
+    },
+    {
+      id: "tx-2",
+      type: "withdrawal",
+      asset: "ETH",
+      amount: 0.5,
+      status: "completed",
+      date: new Date(Date.now() - 172800000).toISOString(),
+      fee: 0.001,
+      txid: "0xabcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890",
+    },
+    {
+      id: "tx-3",
+      type: "buy",
+      asset: "SOL",
+      amount: 5,
+      status: "completed",
+      date: new Date(Date.now() - 259200000).toISOString(),
+      fee: 0.1,
+    },
+    {
+      id: "tx-4",
+      type: "sell",
+      asset: "ADA",
+      amount: 500,
+      status: "completed",
+      date: new Date(Date.now() - 345600000).toISOString(),
+      fee: 1,
+    },
+    {
+      id: "tx-5",
+      type: "transfer",
+      asset: "USDT",
+      amount: 1000,
+      status: "completed",
+      date: new Date(Date.now() - 432000000).toISOString(),
+      from: "Spot Wallet",
+      to: "Futures Wallet",
+    },
+    {
+      id: "tx-6",
+      type: "deposit",
+      asset: "USDT",
+      amount: 2000,
+      status: "pending",
+      date: new Date(Date.now() - 3600000).toISOString(),
+      txid: "0x7890abcdef1234567890abcdef1234567890abcdef1234567890abcdef123456",
     },
   ]
 }

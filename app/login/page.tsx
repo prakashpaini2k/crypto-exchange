@@ -41,7 +41,7 @@ export default function LoginPage() {
               src="/placeholder.svg?height=32&width=32"
               width={32}
               height={32}
-              alt="CryptoEx Logo"
+              alt="Binance Logo"
               className="rounded-full"
             />
             <span>Binance</span>
@@ -52,7 +52,7 @@ export default function LoginPage() {
       <main className="flex flex-1 items-center justify-center py-12">
         <div className="w-full max-w-md px-4">
           <div className="mb-8 text-center">
-            <h1 className="text-2xl font-bold">Welcome to CryptoEx</h1>
+            <h1 className="text-2xl font-bold">Welcome to Binance</h1>
             <p className="mt-2 text-zinc-400">Sign in to access your account</p>
           </div>
 
@@ -214,7 +214,7 @@ export default function LoginPage() {
 
       <footer className="border-t border-zinc-800 py-6">
         <div className="container text-center text-sm text-zinc-400">
-          <p>© {new Date().getFullYear()} CryptoEx. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Binance. All rights reserved.</p>
         </div>
       </footer>
     </div>

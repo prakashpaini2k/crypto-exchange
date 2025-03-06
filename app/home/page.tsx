@@ -128,7 +128,7 @@ export default function HomePage() {
                         src="/placeholder.svg?height=32&width=32"
                         width={32}
                         height={32}
-                        alt="CryptoEx Logo"
+                        alt="Binance Logo"
                         className="rounded-full"
                       />
                       <span>Binance</span>
@@ -187,7 +187,7 @@ export default function HomePage() {
                   src="/placeholder.svg?height=32&width=32"
                   width={32}
                   height={32}
-                  alt="CryptoEx Logo"
+                  alt="Binance Logo"
                   className="rounded-full"
                 />
                 <span>Binance</span>
@@ -309,7 +309,7 @@ export default function HomePage() {
                     </div>
                     <div className="flex gap-2">
                       <Button className="bg-yellow-500 text-black hover:bg-yellow-600">Deposit</Button>
-                      <Button variant="outline" className="border-zinc-700 hover:bg-zinc-800">
+                      <Button variant="outline" className="px-4 py-2 border-2 border-gray-800 text-gray-800 bg-white rounded-lg transition duration-300 hover:bg-gray-800 hover:text-white">
                         Withdraw
                       </Button>
                     </div>
@@ -322,7 +322,7 @@ export default function HomePage() {
             <section className="mb-8">
               <div className="mb-4 flex items-center justify-between">
                 <h2 className="text-xl font-bold">Your Portfolio</h2>
-                <Button variant="outline" size="sm" className="border-zinc-700 hover:bg-zinc-800">
+                <Button variant="outline" size="sm" className="px-4 py-2 border-2 border-gray-800 text-gray-800 bg-white rounded-lg transition duration-300 hover:bg-gray-800 hover:text-white">
                   <DollarSign className="mr-2 h-4 w-4" />
                   Buy Crypto
                 </Button>
@@ -353,7 +353,7 @@ export default function HomePage() {
                   <p className="text-red-500">{error}</p>
                   <Button
                     variant="outline"
-                    className="mt-4 border-zinc-700 hover:bg-zinc-800"
+                    className="mt-4 px-4 py-2 border-2 border-gray-800 text-gray-800 bg-white rounded-lg transition duration-300 hover:bg-gray-800 hover:text-white"
                     onClick={() => window.location.reload()}
                   >
                     Retry
@@ -398,7 +398,7 @@ export default function HomePage() {
                   <p className="text-red-500">{error}</p>
                   <Button
                     variant="outline"
-                    className="mt-4 border-zinc-700 hover:bg-zinc-800"
+                    className="mt-4 px-4 py-2 border-2 border-gray-800 text-gray-800 bg-white rounded-lg transition duration-300 hover:bg-gray-800 hover:text-white"
                     onClick={() => window.location.reload()}
                   >
                     Retry
@@ -445,7 +445,7 @@ export default function HomePage() {
         {/* Footer */}
         <footer className="border-t border-zinc-800 py-6">
           <div className="container text-center text-sm text-zinc-400">
-            <p>© {new Date().getFullYear()} CryptoEx. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Binance. All rights reserved.</p>
           </div>
         </footer>
       </div>

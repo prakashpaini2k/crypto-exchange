@@ -39,7 +39,6 @@ export interface NewsItem {
   url: string
   publishedAt: string
   source: string
-  image?: string
   category: string
 }
 
@@ -64,5 +63,34 @@ export interface MarketPair {
   volume: number
   high: number
   low: number
+  market: "spot" | "futures" | "options"
+  leverage?: string
+  expiryDate?: string
+  strikePrice?: number
+  optionType?: "call" | "put"
+}
+
+export interface WalletAsset {
+  id: string
+  name: string
+  symbol: string
+  balance: number
+  availableBalance: number
+  inOrder: number
+  value: number
+  image: string
+}
+
+export interface Transaction {
+  id: string
+  type: "deposit" | "withdrawal" | "transfer" | "buy" | "sell"
+  asset: string
+  amount: number
+  status: "completed" | "pending" | "failed"
+  date: string
+  fee?: number
+  txid?: string
+  from?: string
+  to?: string
 }
 
