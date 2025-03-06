@@ -135,10 +135,10 @@ export default function LoginPage() {
                   </div>
 
                   <div className="mt-6 grid grid-cols-2 gap-4">
-                    <Button variant="outline" className="border-zinc-700 hover:bg-zinc-800">
+                    <Button variant="outline" className="px-4 py-2 border-2 border-gray-800 text-gray-800 bg-white rounded-lg transition duration-300 hover:bg-gray-800 hover:text-white">
                       Google
                     </Button>
-                    <Button variant="outline" className="border-zinc-700 hover:bg-zinc-800">
+                    <Button variant="outline" className="px-4 py-2 border-2 border-gray-800 text-gray-800 bg-white rounded-lg transition duration-300 hover:bg-gray-800 hover:text-white">
                       Apple
                     </Button>
                   </div>

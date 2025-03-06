@@ -5,6 +5,8 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import {
   BarChart2,
+  ChevronDown,
+  ChevronRight,
   CreditCard,
   DollarSign,
   Gift,
@@ -29,12 +31,31 @@ interface SidebarNavigationProps {
 export function SidebarNavigation({ className }: SidebarNavigationProps) {
   const pathname = usePathname()
   const [expanded, setExpanded] = useState(true)
+  const [expandedItems, setExpandedItems] = useState<string[]>([])
 
   const navItems = [
     {
       title: "Dashboard",
       href: "/home",
       icon: Home,
+    },
+    {
+      title: "Assets",
+      icon: Wallet,
+      subitems: [
+        {
+          title: "Overview",
+          href: "/assets/overview",
+        },
+        {
+          title: "Spot",
+          href: "/assets/spot",
+        },
+        {
+          title: "Options",
+          href: "/assets/options",
+        },
+      ],
     },
     {
       title: "Markets",
@@ -105,24 +126,76 @@ export function SidebarNavigation({ className }: SidebarNavigationProps) {
         </Button>
         {expanded && (
           <Link href="/" className="flex items-center gap-2 font-bold text-yellow-500">
-            <span>Binance</span>
+            <span>CryptoEx</span>
           </Link>
         )}
       </div>
       <ScrollArea className="flex-1 px-3 py-2">
         <div className="space-y-1">
           {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={cn(
-                "flex items-center gap-3 rounded-md px-3 py-2 text-sm transition-colors",
-                pathname === item.href ? "bg-zinc-800 text-white" : "text-zinc-400 hover:bg-zinc-800 hover:text-white",
+            <div key={item.title} className="space-y-1">
+              {item.subitems ? (
+                <div className="space-y-1">
+                  <button
+                    onClick={() => {
+                      const isOpen = expandedItems.includes(item.title)
+                      if (isOpen) {
+                        setExpandedItems(expandedItems.filter((i) => i !== item.title))
+                      } else {
+                        setExpandedItems([...expandedItems, item.title])
+                      }
+                    }}
+                    className={cn(
+                      "flex w-full items-center justify-between gap-3 rounded-md px-3 py-2 text-sm transition-colors",
+                      "text-zinc-400 hover:bg-zinc-800 hover:text-white",
+                    )}
+                  >
+                    <div className="flex items-center gap-3">
+                      <item.icon className="h-4 w-4" />
+                      {expanded && <span>{item.title}</span>}
+                    </div>
+                    {expanded &&
+                      (expandedItems.includes(item.title) ? (
+                        <ChevronDown className="h-4 w-4" />
+                      ) : (
+                        <ChevronRight className="h-4 w-4" />
+                      ))}
+                  </button>
+
+                  {expandedItems.includes(item.title) && expanded && (
+                    <div className="ml-6 space-y-1">
+                      {item.subitems.map((subitem) => (
+                        <Link
+                          key={subitem.href}
+                          href={subitem.href}
+                          className={cn(
+                            "flex items-center gap-3 rounded-md px-3 py-2 text-sm transition-colors",
+                            pathname === subitem.href
+                              ? "bg-zinc-800 text-white"
+                              : "text-zinc-400 hover:bg-zinc-800 hover:text-white",
+                          )}
+                        >
+                          <span>{subitem.title}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link
+                  href={item.href}
+                  className={cn(
+                    "flex items-center gap-3 rounded-md px-3 py-2 text-sm transition-colors",
+                    pathname === item.href
+                      ? "bg-zinc-800 text-white"
+                      : "text-zinc-400 hover:bg-zinc-800 hover:text-white",
+                  )}
+                >
+                  <item.icon className="h-4 w-4" />
+                  {expanded && <span>{item.title}</span>}
+                </Link>
               )}
-            >
-              <item.icon className="h-4 w-4" />
-              {expanded && <span>{item.title}</span>}
-            </Link>
+            </div>
           ))}
         </div>
         <div className="mt-6 space-y-1">
