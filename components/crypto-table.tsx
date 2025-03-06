@@ -51,7 +51,7 @@ export function CryptoTable({ cryptoData }: CryptoTableProps) {
                 </td>
                 <td className="whitespace-nowrap px-6 py-4 text-right">{formatCompactNumber(coin.market_cap)}</td>
                 <td className="whitespace-nowrap px-6 py-4 text-right">
-                  <Button size="sm" variant="outline" className="border-zinc-700 hover:bg-zinc-800">
+                  <Button size="sm" variant="outline" className="px-4 py-2 border-2 border-gray-800 text-gray-800 bg-white rounded-lg transition duration-300 hover:bg-gray-800 hover:text-white">
                     Trade
                   </Button>
                 </td>

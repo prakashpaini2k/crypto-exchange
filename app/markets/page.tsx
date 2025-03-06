@@ -94,7 +94,7 @@ export default function MarketsPage() {
                   className={
                     activeQuote === "all"
                       ? "bg-yellow-500 text-black hover:bg-yellow-600"
-                      : "border-zinc-700 hover:bg-zinc-800"
+                      : "px-4 py-2 border-2 border-gray-800 text-gray-800 bg-white rounded-lg transition duration-300 hover:bg-gray-800 hover:text-white"
                   }
                   onClick={() => filterByQuote("all")}
                 >
@@ -106,7 +106,7 @@ export default function MarketsPage() {
                   className={
                     activeQuote === "USDT"
                       ? "bg-yellow-500 text-black hover:bg-yellow-600"
-                      : "border-zinc-700 hover:bg-zinc-800"
+                      : "px-4 py-2 border-2 border-gray-800 text-gray-800 bg-white rounded-lg transition duration-300 hover:bg-gray-800 hover:text-white"
                   }
                   onClick={() => filterByQuote("USDT")}
                 >
@@ -118,7 +118,7 @@ export default function MarketsPage() {
                   className={
                     activeQuote === "BTC"
                       ? "bg-yellow-500 text-black hover:bg-yellow-600"
-                      : "border-zinc-700 hover:bg-zinc-800"
+                      : "px-4 py-2 border-2 border-gray-800 text-gray-800 bg-white rounded-lg transition duration-300 hover:bg-gray-800 hover:text-white"
                   }
                   onClick={() => filterByQuote("BTC")}
                 >
@@ -130,7 +130,7 @@ export default function MarketsPage() {
                   className={
                     activeQuote === "ETH"
                       ? "bg-yellow-500 text-black hover:bg-yellow-600"
-                      : "border-zinc-700 hover:bg-zinc-800"
+                      : "px-4 py-2 border-2 border-gray-800 text-gray-800 bg-white rounded-lg transition duration-300 hover:bg-gray-800 hover:text-white"
                   }
                   onClick={() => filterByQuote("ETH")}
                 >
@@ -182,7 +182,7 @@ export default function MarketsPage() {
                 <p className="text-zinc-400">No markets found matching your search criteria.</p>
                 <Button
                   variant="outline"
-                  className="mt-4 border-zinc-700 hover:bg-zinc-800"
+                  className="mt-4 px-4 py-2 border-2 border-gray-800 text-gray-800 bg-white rounded-lg transition duration-300 hover:bg-gray-800 hover:text-white"
                   onClick={() => {
                     setSearchQuery("")
                     setActiveQuote("all")
