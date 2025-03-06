@@ -14,12 +14,16 @@ import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Checkbox } from "@/components/ui/checkbox"
 
+// Add toast imports
+import { useToast } from "@/components/ui/use-toast"
+
 export default function LoginPage() {
   const router = useRouter()
   const [showPassword, setShowPassword] = useState(false)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [loading, setLoading] = useState(false)
+  const { toast } = useToast()
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
@@ -28,6 +32,22 @@ export default function LoginPage() {
     // Simulate login - in a real app, this would call an API
     setTimeout(() => {
       setLoading(false)
+
+      // Show notifications after successful login
+      toast({
+        title: "Transfer Notice",
+        description: "Your swift transfer is on the way and details will be given in 24 to 48 hrs",
+        variant: "warning",
+      })
+
+      setTimeout(() => {
+        toast({
+          title: "Account Restriction",
+          description: "Trading and withdrawal are on hold till then",
+          variant: "destructive",
+        })
+      }, 1000)
+
       router.push("/home")
     }, 1500)
   }

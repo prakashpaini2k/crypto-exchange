@@ -30,9 +30,8 @@ export default function WalletPage() {
       setAssets(assetData)
       setTransactions(txData)
 
-      // Calculate total balance
-      const total = assetData.reduce((sum, asset) => sum + asset.value, 0)
-      setTotalBalance(total)
+      // Set fixed total balance
+      setTotalBalance(6302560)
 
       setLoading(false)
     }

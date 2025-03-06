@@ -75,45 +75,44 @@ export function timeAgo(dateString: string): string {
 
 // Sample portfolio data - in a real app, this would come from a database
 export function generatePortfolio(cryptoData: CryptoCurrency[]): PortfolioAsset[] {
-  // Sample holdings - these would normally come from a user's database record
-  const holdings = [
-    { id: "bitcoin", amount: 0.12, avgBuyPrice: 41200 },
-    { id: "ethereum", amount: 1.5, avgBuyPrice: 2950 },
-    { id: "solana", amount: 12.5, avgBuyPrice: 95 },
-    { id: "cardano", amount: 2500, avgBuyPrice: 0.48 },
-    { id: "binancecoin", amount: 2.8, avgBuyPrice: 380 },
-    { id: "ripple", amount: 1500, avgBuyPrice: 0.52 },
+  // Find Solana in the crypto data
+  const solana = cryptoData.find((c) => c.id === "solana" || c.symbol.toLowerCase() === "sol")
+  const solPrice = solana?.current_price || 102.5
+
+  // Create portfolio with Solana and USDT
+  const portfolio = [
+    {
+      id: "solana",
+      name: "Solana",
+      symbol: "SOL",
+      amount: 243.9,
+      image: solana?.image || "/placeholder.svg?height=32&width=32",
+      currentPrice: solPrice,
+      priceChangePercentage24h: solana?.price_change_percentage_24h || 1.5,
+      value: 25000,
+      percentage: 0.4, // Will be recalculated
+      pnl: 0,
+      pnlPercentage: 0,
+      averageBuyPrice: solPrice,
+    },
+    {
+      id: "tether",
+      name: "Tether",
+      symbol: "USDT",
+      amount: 6277560,
+      image: "/placeholder.svg?height=32&width=32",
+      currentPrice: 1,
+      priceChangePercentage24h: 0,
+      value: 6277560,
+      percentage: 99.6, // Will be recalculated
+      pnl: 0,
+      pnlPercentage: 0,
+      averageBuyPrice: 1,
+    },
   ]
 
-  // Map holdings to portfolio assets with current prices
-  const portfolio = holdings
-    .map((holding) => {
-      const crypto = cryptoData.find((c) => c.id === holding.id)
-      if (!crypto) return null
-
-      const value = holding.amount * crypto.current_price
-      const pnl = value - holding.amount * holding.avgBuyPrice
-      const pnlPercentage = (pnl / (holding.amount * holding.avgBuyPrice)) * 100
-
-      return {
-        id: crypto.id,
-        name: crypto.name,
-        symbol: crypto.symbol.toUpperCase(),
-        amount: holding.amount,
-        image: crypto.image,
-        currentPrice: crypto.current_price,
-        priceChangePercentage24h: crypto.price_change_percentage_24h,
-        value,
-        percentage: 0, // Will be calculated after total is known
-        pnl,
-        pnlPercentage,
-        averageBuyPrice: holding.avgBuyPrice,
-      }
-    })
-    .filter((asset): asset is PortfolioAsset => asset !== null)
-
   // Calculate total value
-  const totalValue = portfolio.reduce((sum, asset) => sum + asset.value, 0)
+  const totalValue = 6302560
 
   // Calculate percentage of total portfolio
   return portfolio.map((asset) => ({
@@ -407,73 +406,23 @@ export function generateMarketPairs(): MarketPair[] {
 export function generateWalletAssets(): WalletAsset[] {
   return [
     {
-      id: "bitcoin",
-      name: "Bitcoin",
-      symbol: "BTC",
-      balance: 0.12,
-      availableBalance: 0.1,
-      inOrder: 0.02,
-      value: 5228.06,
-      image: "/placeholder.svg?height=32&width=32",
-    },
-    {
-      id: "ethereum",
-      name: "Ethereum",
-      symbol: "ETH",
-      balance: 1.5,
-      availableBalance: 1.5,
-      inOrder: 0,
-      value: 4884.18,
-      image: "/placeholder.svg?height=32&width=32",
-    },
-    {
       id: "solana",
       name: "Solana",
       symbol: "SOL",
-      balance: 12.5,
-      availableBalance: 10.0,
-      inOrder: 2.5,
-      value: 1284.75,
-      image: "/placeholder.svg?height=32&width=32",
-    },
-    {
-      id: "cardano",
-      name: "Cardano",
-      symbol: "ADA",
-      balance: 2500,
-      availableBalance: 2500,
+      balance: 243.9,
+      availableBalance: 243.9,
       inOrder: 0,
-      value: 1300.0,
-      image: "/placeholder.svg?height=32&width=32",
-    },
-    {
-      id: "binancecoin",
-      name: "Binance Coin",
-      symbol: "BNB",
-      balance: 2.8,
-      availableBalance: 2.3,
-      inOrder: 0.5,
-      value: 1154.58,
-      image: "/placeholder.svg?height=32&width=32",
-    },
-    {
-      id: "ripple",
-      name: "XRP",
-      symbol: "XRP",
-      balance: 1500,
-      availableBalance: 1000,
-      inOrder: 500,
-      value: 870.0,
+      value: 25000,
       image: "/placeholder.svg?height=32&width=32",
     },
     {
       id: "tether",
       name: "Tether",
       symbol: "USDT",
-      balance: 2500,
-      availableBalance: 2500,
+      balance: 6277560,
+      availableBalance: 6277560,
       inOrder: 0,
-      value: 2500.0,
+      value: 6277560,
       image: "/placeholder.svg?height=32&width=32",
     },
   ]

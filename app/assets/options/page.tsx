@@ -69,12 +69,9 @@ export default function OptionsAssetsPage() {
 
       setPositions(mockPositions)
 
-      // Calculate totals
-      const total = mockPositions.reduce((sum, pos) => sum + pos.value, 0)
-      const pnlTotal = mockPositions.reduce((sum, pos) => sum + pos.pnl, 0)
-
-      setTotalValue(total)
-      setTotalPnl(pnlTotal)
+      // Set fixed values
+      setTotalValue(0) // No options positions value
+      setTotalPnl(0) // No options P&L
 
       setLoading(false)
     }

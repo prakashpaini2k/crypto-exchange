@@ -72,17 +72,11 @@ export default function HomePage() {
         const orderData = generateOrderHistory()
         setOrders(orderData)
 
-        // Calculate total balance
-        const total = portfolioData.reduce((sum, asset) => sum + asset.value, 0)
-        setTotalBalance(total)
+        // Set fixed total balance
+        setTotalBalance(6302560)
 
-        // Calculate 24h change
-        const changeValue = portfolioData.reduce(
-          (sum, asset) => sum + (asset.value * asset.priceChangePercentage24h) / 100,
-          0,
-        )
-        const changePercentage = (changeValue / total) * 100
-        setDailyChange({ value: changeValue, percentage: changePercentage })
+        // Calculate 24h change (minimal for stability)
+        setDailyChange({ value: 1250, percentage: 0.02 })
 
         setLoading(false)
       } catch (err) {

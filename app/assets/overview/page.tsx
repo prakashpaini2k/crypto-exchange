@@ -23,18 +23,22 @@ export default function AssetsOverviewPage() {
       const assetData = generateWalletAssets()
       setAssets(assetData)
 
-      // Calculate total balance
-      const total = assetData.reduce((sum, asset) => sum + asset.value, 0)
-      setTotalBalance(total)
+      // Set fixed total balance
+      setTotalBalance(6302560)
 
       // Calculate asset distribution
-      const distribution = assetData
-        .map((asset) => ({
-          name: asset.name,
-          value: asset.value,
-          percentage: (asset.value / total) * 100,
-        }))
-        .sort((a, b) => b.value - a.value)
+      const distribution = [
+        {
+          name: "Tether",
+          value: 6277560,
+          percentage: 99.6,
+        },
+        {
+          name: "Solana",
+          value: 25000,
+          percentage: 0.4,
+        },
+      ]
 
       setAssetDistribution(distribution)
       setLoading(false)

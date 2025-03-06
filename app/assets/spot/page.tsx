@@ -25,9 +25,8 @@ export default function SpotAssetsPage() {
       const assetData = generateWalletAssets()
       setAssets(assetData)
 
-      // Calculate total balance
-      const total = assetData.reduce((sum, asset) => sum + asset.value, 0)
-      setTotalBalance(total)
+      // Set fixed total balance
+      setTotalBalance(6302560)
 
       setLoading(false)
     }
