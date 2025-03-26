@@ -31,7 +31,7 @@ export default function WalletPage() {
       setTransactions(txData)
 
       // Set fixed total balance
-      setTotalBalance(6302560)
+      setTotalBalance(231000)
 
       setLoading(false)
     }

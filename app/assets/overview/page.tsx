@@ -23,20 +23,16 @@ export default function AssetsOverviewPage() {
       const assetData = generateWalletAssets()
       setAssets(assetData)
 
-      // Set fixed total balance
-      setTotalBalance(6302560)
+      // Set total balance to 231,000 USDT
+      const total = 231000
+      setTotalBalance(total)
 
-      // Calculate asset distribution
+      // Calculate asset distribution - only USDT
       const distribution = [
         {
           name: "Tether",
-          value: 6277560,
-          percentage: 99.6,
-        },
-        {
-          name: "Solana",
-          value: 25000,
-          percentage: 0.4,
+          value: 231000,
+          percentage: 100,
         },
       ]
 

@@ -69,8 +69,9 @@ export default function OptionsAssetsPage() {
 
       setPositions(mockPositions)
 
-      // Set fixed values
-      setTotalValue(0) // No options positions value
+      // Set fixed values - 231,000 USDT total balance
+      // For options, we'll say 15% of total is allocated to options
+      setTotalValue(231000 * 0.15)
       setTotalPnl(0) // No options P&L
 
       setLoading(false)

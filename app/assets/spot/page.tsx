@@ -26,7 +26,7 @@ export default function SpotAssetsPage() {
       setAssets(assetData)
 
       // Set fixed total balance
-      setTotalBalance(6302560)
+      setTotalBalance(231000)
 
       setLoading(false)
     }

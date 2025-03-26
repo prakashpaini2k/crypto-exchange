@@ -75,36 +75,18 @@ export function timeAgo(dateString: string): string {
 
 // Sample portfolio data - in a real app, this would come from a database
 export function generatePortfolio(cryptoData: CryptoCurrency[]): PortfolioAsset[] {
-  // Find Solana in the crypto data
-  const solana = cryptoData.find((c) => c.id === "solana" || c.symbol.toLowerCase() === "sol")
-  const solPrice = solana?.current_price || 102.5
-
-  // Create portfolio with Solana and USDT
+  // Create portfolio with USDT only
   const portfolio = [
-    {
-      id: "solana",
-      name: "Solana",
-      symbol: "SOL",
-      amount: 243.9,
-      image: solana?.image || "/placeholder.svg?height=32&width=32",
-      currentPrice: solPrice,
-      priceChangePercentage24h: solana?.price_change_percentage_24h || 1.5,
-      value: 25000,
-      percentage: 0.4, // Will be recalculated
-      pnl: 0,
-      pnlPercentage: 0,
-      averageBuyPrice: solPrice,
-    },
     {
       id: "tether",
       name: "Tether",
       symbol: "USDT",
-      amount: 6277560,
+      amount: 231000,
       image: "/placeholder.svg?height=32&width=32",
       currentPrice: 1,
       priceChangePercentage24h: 0,
-      value: 6277560,
-      percentage: 99.6, // Will be recalculated
+      value: 231000,
+      percentage: 100,
       pnl: 0,
       pnlPercentage: 0,
       averageBuyPrice: 1,
@@ -112,7 +94,7 @@ export function generatePortfolio(cryptoData: CryptoCurrency[]): PortfolioAsset[
   ]
 
   // Calculate total value
-  const totalValue = 6302560
+  const totalValue = portfolio.reduce((sum, asset) => sum + asset.value, 0)
 
   // Calculate percentage of total portfolio
   return portfolio.map((asset) => ({
@@ -406,23 +388,13 @@ export function generateMarketPairs(): MarketPair[] {
 export function generateWalletAssets(): WalletAsset[] {
   return [
     {
-      id: "solana",
-      name: "Solana",
-      symbol: "SOL",
-      balance: 243.9,
-      availableBalance: 243.9,
-      inOrder: 0,
-      value: 25000,
-      image: "/placeholder.svg?height=32&width=32",
-    },
-    {
       id: "tether",
       name: "Tether",
       symbol: "USDT",
-      balance: 6277560,
-      availableBalance: 6277560,
+      balance: 231000,
+      availableBalance: 231000,
       inOrder: 0,
-      value: 6277560,
+      value: 231000,
       image: "/placeholder.svg?height=32&width=32",
     },
   ]
@@ -434,11 +406,11 @@ export function generateTransactionHistory(): Transaction[] {
     {
       id: "tx-1",
       type: "deposit",
-      asset: "BTC",
-      amount: 0.05,
+      asset: "USDT",
+      amount: 231000,
       status: "completed",
       date: new Date(Date.now() - 86400000).toISOString(),
-      fee: 0.0001,
+      fee: 0,
       txid: "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
     },
     {
@@ -483,8 +455,8 @@ export function generateTransactionHistory(): Transaction[] {
       id: "tx-6",
       type: "deposit",
       asset: "USDT",
-      amount: 2000,
-      status: "pending",
+      amount: 230000,
+      status: "completed",
       date: new Date(Date.now() - 3600000).toISOString(),
       txid: "0x7890abcdef1234567890abcdef1234567890abcdef1234567890abcdef123456",
     },
