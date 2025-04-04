@@ -71,7 +71,7 @@ export default function OptionsAssetsPage() {
 
       // Set fixed values - 231,000 USDT total balance
       // For options, we'll say 15% of total is allocated to options
-      setTotalValue(231000 * 0.15)
+      setTotalValue(2730000 * 0.15)
       setTotalPnl(0) // No options P&L
 
       setLoading(false)

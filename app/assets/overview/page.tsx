@@ -24,14 +24,14 @@ export default function AssetsOverviewPage() {
       setAssets(assetData)
 
       // Set total balance to 231,000 USDT
-      const total = 231000
+      const total = 2730000
       setTotalBalance(total)
 
       // Calculate asset distribution - only USDT
       const distribution = [
         {
           name: "Tether",
-          value: 231000,
+          value: 2730000,
           percentage: 100,
         },
       ]
